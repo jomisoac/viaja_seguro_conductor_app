@@ -13,23 +13,26 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             }
         });
     })
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+        $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
+        .state('login',{
+            url: '/login',
+            templateUrl: 'templates/login.html',
+        })
+        .state('registrar', {
+            url: '/registrar',
+            templateUrl: 'templates/registrar-conductor.html',
+            controller: 'ConductorCtrl'
+        })
         .state('app', {
             url: '/app',
             abstract: true,
             templateUrl: 'templates/menu.html',
             controller: 'AppCtrl'
         })
-        .state('app.registrar', {
-            url: '/registrar',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/registrar-conductor.html',
-                    controller: 'ConductorCtrl'
-                }
-            }
-        });
+        
+        ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/registrar');
+        $urlRouterProvider.otherwise('/login');
     });

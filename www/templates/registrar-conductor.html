@@ -1,35 +1,76 @@
-<ion-view view-title="Registar Conductor">
-    <ion-content>
-        <form name="formConductor">
-            <div class="list">
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Número de Cedula</span>
-                    <input type="number" placeholder="00000000"  ng-model="conductor.numeroDocumento">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Nombres:</span>
-                    <input type="text" placeholder="John Alexander Perez" ng-model="conductor.nombre">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Placa del Vehiculo:</span>
-                    <input type="text" placeholder="ABC 123" ng-model="conductor.placa">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Modelo:</span>
-                    <input type="number" placeholder="2015" ng-model="conductor.modelo">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Color del Vehículo:</span>
-                    <input type="text" placeholder="Rojo" ng-model="conductor.colorVehiculo">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Foto:</span>
-                    <input type="text" placeholder="ABC 123" ng-model="conductor.foto">
-                </label>
-                <label class="item">
-                    <button class="button button-block button-positive" ng-click="registarConductor()">Registrar</button>
-                </label>
-            </div>
-        </form>
-    </ion-content>
-</ion-view>
+<ion-header-bar class="bar-positive">
+    <button class="button button-icon icon ion-arrow-left-c" ng-click="volver()"></button>
+    <h1 class="title">Registrar</h1>
+</ion-header-bar>
+<ion-content>
+    <form name="formConductor">
+        <div class="list list-inset">
+            <label class="item item-input input-bottom">
+                <input 
+                       type="number" 
+                       name="docuento" placeholder="Número de Documento"  ng-model="conductor.numeroDocumento" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.docuento.$pristine && formConductor.docuento.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="text" name="nombre" placeholder="Nombre" ng-model="conductor.nombre" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.nombre.$pristine && formConductor.nombre.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="text" name="direccion" placeholder="Dirección" ng-model="conductor.direccion" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.direccion.$pristine && formConductor.direccion.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="number" name="telefono" placeholder="Telefono" ng-model="conductor.telefono" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.telefono.$pristine && formConductor.telefono.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="email" name="correo" placeholder="Correo" ng-model="conductor.correo" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.correo.$pristine && formConductor.correo.$error.required">
+                    Campo Obligatorio
+                </span>
+                <span class="assertive" 
+                  ng-show="!formConductor.correo.$pristine && formConductor.correo.$error.email">
+                    Correo Inválido
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="text" name="placa" placeholder="Placa del Vehiculo" ng-model="conductor.placa" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.placa.$pristine && formConductor.placa.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="number" name="modelo" placeholder="Modelo" ng-model="conductor.modelo" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.modelo.$pristine && formConductor.modelo.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <input type="text" name="color" placeholder="Color" ng-model="conductor.colorVehiculo" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.color.$pristine && formConductor.color.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <button 
+                    class="button button-block button-positive" 
+                    ng-click="registarConductor()" ng-disabled="formConductor.$invalid">Registrar
+            </button>
+        </div>
+    </form>
+</ion-content>

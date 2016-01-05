@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.center{
+    text-align:center;
+}
+
+.input-bottom{
+    margin-bottom:5%;
+}
