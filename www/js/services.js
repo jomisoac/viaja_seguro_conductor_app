@@ -5,3 +5,11 @@ app.service("ConductorService", function($http){
     }
     
 });
+
+app.service('LoginService',function(){
+   
+    this.logearse = function(usuario){
+        return "Bienvenido";
+    }
+    
+});

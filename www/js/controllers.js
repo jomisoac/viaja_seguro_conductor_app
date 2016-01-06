@@ -1,6 +1,27 @@
 angular.module('starter.controllers', [])
     .controller('AppCtrl', function($scope,$ionicPopup) {
     })
+
+    .controller('LoginCtrl',function($scope,$ionicPopup,LoginService){
+        $scope.$on('$ionicView.enter',function(){
+           $scope.usuario = {}; 
+        });
+    
+        $scope.login = function(){
+            console.log($scope.usuario);
+            mostarAlert("Login Correcto",LoginService.logearse($scope.usuario));            
+        }
+        
+        function mostarAlert(titulo,contenido){
+            var alertPopup = $ionicPopup.alert({
+                title: titulo,
+                template: contenido
+            });
+            alertPopup.then(function (res) {
+                $scope.conductor = {};
+            });
+        }
+    })
     
     .controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService) {
         $scope.conductor = {};
