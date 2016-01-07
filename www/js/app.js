@@ -32,6 +32,15 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             templateUrl: 'templates/menu.html',
             controller: 'AppCtrl'
         })
+        .state('app.registrarVehiculo', {
+        url: '/registrar-vehiculo',
+        views: {
+            'menuContent': {
+                //controller: 'HomeCtrl',
+                templateUrl: 'templates/registrar-vehiculo.html'
+            }
+        }
+    })
         
         ;
         // if none of the above states are matched, use this as the fallback

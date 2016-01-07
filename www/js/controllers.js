@@ -2,14 +2,14 @@ angular.module('starter.controllers', [])
     .controller('AppCtrl', function($scope,$ionicPopup) {
     })
 
-    .controller('LoginCtrl',function($scope,$ionicPopup,LoginService){
+    .controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService){
         $scope.$on('$ionicView.enter',function(){
            $scope.usuario = {}; 
         });
     
         $scope.login = function(){
-            console.log($scope.usuario);
-            mostarAlert("Login Correcto",LoginService.logearse($scope.usuario));            
+            //mostarAlert("Login Correcto",LoginService.logearse($scope.usuario));
+            $location.path("/app/registrar-vehiculo");
         }
         
         function mostarAlert(titulo,contenido){

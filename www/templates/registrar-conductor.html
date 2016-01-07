@@ -1,27 +1,38 @@
 <ion-header-bar class="bar-positive">
     <button class="button button-icon icon ion-arrow-left-c" ng-click="volver()"></button>
-    <h1 class="title">Registrar</h1>
+    <h1 class="title">Registrar Conductor</h1>
 </ion-header-bar>
 <ion-content>
     <form name="formConductor">
         <div class="list list-inset">
             <label class="item item-input input-bottom">
+                <i class="icon ion-card placeholder-icon"></i>
                 <input 
                        type="number" 
-                       name="docuento" placeholder="Número de Documento"  ng-model="conductor.numeroDocumento" ng-required="true">
+                       name="docuento" placeholder="Identificación"  ng-model="conductor.numeroDocumento" ng-required="true">
                 <span class="assertive" 
                   ng-show="!formConductor.docuento.$pristine && formConductor.docuento.$error.required">
                     Campo Obligatorio
                 </span>
             </label>
             <label class="item item-input input-bottom">
-                <input type="text" name="nombre" placeholder="Nombre" ng-model="conductor.nombre" ng-required="true">
+                <i class="icon ion-person placeholder-icon"></i>
+                <input type="text" name="nombre" placeholder="Nombres" ng-model="conductor.nombre" ng-required="true">
                 <span class="assertive" 
                   ng-show="!formConductor.nombre.$pristine && formConductor.nombre.$error.required">
                     Campo Obligatorio
                 </span>
             </label>
             <label class="item item-input input-bottom">
+                <i class="icon ion-person placeholder-icon"></i>
+                <input type="text" name="apellidos" placeholder="Apellidos" ng-model="conductor.apellidos" ng-required="true">
+                <span class="assertive" 
+                  ng-show="!formConductor.apellidos.$pristine && formConductor.apellidos.$error.required">
+                    Campo Obligatorio
+                </span>
+            </label>
+            <label class="item item-input input-bottom">
+                <i class="icon ion-android-pin placeholder-icon"></i>
                 <input type="text" name="direccion" placeholder="Dirección" ng-model="conductor.direccion" ng-required="true">
                 <span class="assertive" 
                   ng-show="!formConductor.direccion.$pristine && formConductor.direccion.$error.required">
@@ -29,6 +40,7 @@
                 </span>
             </label>
             <label class="item item-input input-bottom">
+                <i class="icon ion-android-phone-portrait placeholder-icon"></i>
                 <input type="number" name="telefono" placeholder="Telefono" ng-model="conductor.telefono" ng-required="true">
                 <span class="assertive" 
                   ng-show="!formConductor.telefono.$pristine && formConductor.telefono.$error.required">
@@ -36,6 +48,7 @@
                 </span>
             </label>
             <label class="item item-input input-bottom">
+                <i class="icon ion-email placeholder-icon"></i>
                 <input type="email" name="correo" placeholder="Correo" ng-model="conductor.correo" ng-required="true">
                 <span class="assertive" 
                   ng-show="!formConductor.correo.$pristine && formConductor.correo.$error.required">
@@ -46,24 +59,12 @@
                     Correo Inválido
                 </span>
             </label>
-            <label class="item item-input input-bottom">
-                <input type="text" name="placa" placeholder="Placa del Vehiculo" ng-model="conductor.placa" ng-required="true">
+            <label class="item item-input item-stacked-label input-bottom">
+                <span>Fecha de Nacimiento</span>
+                <input type="date" name="fechaNacimiento" placeholder="Fecha de Nacimiento" ng-model="conductor.fecha"
+                       ng-required="true">
                 <span class="assertive" 
-                  ng-show="!formConductor.placa.$pristine && formConductor.placa.$error.required">
-                    Campo Obligatorio
-                </span>
-            </label>
-            <label class="item item-input input-bottom">
-                <input type="number" name="modelo" placeholder="Modelo" ng-model="conductor.modelo" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.modelo.$pristine && formConductor.modelo.$error.required">
-                    Campo Obligatorio
-                </span>
-            </label>
-            <label class="item item-input input-bottom">
-                <input type="text" name="color" placeholder="Color" ng-model="conductor.colorVehiculo" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.color.$pristine && formConductor.color.$error.required">
+                  ng-show="!formConductor.fechaNacimiento.$pristine && formConductor.fechaNacimiento.$error.required">
                     Campo Obligatorio
                 </span>
             </label>
