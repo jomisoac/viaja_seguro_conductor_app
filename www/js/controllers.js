@@ -1,5 +1,20 @@
 angular.module('starter.controllers', [])
-    .controller('AppCtrl', function($scope,$ionicPopup) {
+    .controller('HomeCtrl', function($scope,$ionicPopup,$location) {
+        
+        $scope.opcionMenu = function(opcion){
+            $location.path("app/registrar-vehiculo");
+        }
+    
+        function mostarAlert(titulo,contenido){
+            var alertPopup = $ionicPopup.alert({
+                title: titulo,
+                template: contenido
+            });
+            alertPopup.then(function (res) {
+                $scope.conductor = {};
+            });
+        }
+        
     })
 
     .controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService){
@@ -9,7 +24,7 @@ angular.module('starter.controllers', [])
     
         $scope.login = function(){
             //mostarAlert("Login Correcto",LoginService.logearse($scope.usuario));
-            $location.path("/app/registrar-vehiculo");
+            $location.path("/home");
         }
         
         function mostarAlert(titulo,contenido){

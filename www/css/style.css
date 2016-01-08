@@ -4,9 +4,18 @@
 }
 
 .input-bottom{
-    margin-bottom:5%;
+    margin-bottom:0%;
 }
 
-.separador{
-    margin-top: 10%;
+.padding-button{
+    padding-top: 25%;
+    padding-bottom: 25%;
+}
+
+.padding-notificacion{
+    text-align: right;
+}
+
+.card{
+    box-shadow: 0 1px 3px rgba(214, 35, 35, 0.3);
 }

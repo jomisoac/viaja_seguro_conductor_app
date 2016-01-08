@@ -10,19 +10,11 @@
                 <span class="input-label">Usuario</span>
                 <input type="text"  name="usuario" ng-model="usuario.nombreUsuario" ng-required="true">
             </label>
-            <span class="assertive" 
-                  ng-show="!formLogin.usuario.$pristine && formLogin.usuario.$error.required">
-                Campo Obligatorio
-            </span>
             <label class="item item-input">
                 <span class="input-label">Contraseña</span>
                 <input type="password" name="contrasena" ng-model="usuario.contrasena" ng-required="true">
             </label>
-            <span class="assertive" 
-                  ng-show="!formLogin.contrasena.$pristine && formLogin.contrasena.$error.required">
-                Campo Obligatorio
-            </span>
-            
+            <br>
             <ion-toggle ng-model="usuario.recordarDatos" toggle-class="toggle-positive" class="separador">Recordar Datos</ion-toggle>
 
         </div>

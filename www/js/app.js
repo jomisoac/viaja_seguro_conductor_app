@@ -16,6 +16,11 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
     .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'templates/principal.html',
+            controller: 'HomeCtrl'
+        })
         .state('login',{
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -30,18 +35,16 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             url: '/app',
             abstract: true,
             templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
         })
         .state('app.registrarVehiculo', {
-        url: '/registrar-vehiculo',
-        views: {
-            'menuContent': {
-                //controller: 'HomeCtrl',
-                templateUrl: 'templates/registrar-vehiculo.html'
+            url: '/registrar-vehiculo',
+            views: {
+                'menuContent': {
+                    //controller: 'HomeCtrl',
+                    templateUrl: 'templates/registrar-vehiculo.html'
+                }
             }
-        }
-    })
-        
+        })
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
