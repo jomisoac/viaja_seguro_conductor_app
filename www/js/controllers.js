@@ -1,10 +1,18 @@
 angular.module('starter.controllers', [])
-    .controller('HomeCtrl', function($scope,$ionicPopup,$location) {
+    .controller('HomeCtrl', function($scope,$ionicPopup,$location,$ionicHistory) {
         
         $scope.opcionMenu = function(opcion){
-            $location.path("app/registrar-vehiculo");
+            if(opcion == "Pasajeros"){
+                $location.path("/pasajeros");
+            }
+            if(opcion == "Encomiendas"){
+                $location.path("/encomienda");
+            }
+            if(opcion == "Giros"){
+                $location.path("/giro");
+            }
         }
-    
+            
         function mostarAlert(titulo,contenido){
             var alertPopup = $ionicPopup.alert({
                 title: titulo,
@@ -58,6 +66,26 @@ angular.module('starter.controllers', [])
             alertPopup.then(function (res) {
                 $scope.conductor = {};
             });
+        }
+    })
+
+    .controller('PasajerosCtrl',function($scope,$location){
+        
+        $scope.volver = function(){
+            $location.path("/home");
+        }
+    
+    })
+
+    .controller('EncomiendaCtrl',function($scope,$location){
+        $scope.volver = function(){
+            $location.path("/home");
+        }
+    })
+
+    .controller('GiroCtrl',function($scope,$location){
+        $scope.volver = function(){
+            $location.path("/home");
         }
     })
 ;

@@ -36,6 +36,21 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             abstract: true,
             templateUrl: 'templates/menu.html',
         })
+        .state('pasajeros', {
+            url: '/pasajeros',
+            templateUrl: 'templates/pasajeros.html',
+            controller: 'PasajerosCtrl'
+        })
+        .state('encomienda', {
+            url: '/encomienda',
+            templateUrl: 'templates/paquetes.html',
+            controller: 'EncomiendaCtrl'
+        })
+         .state('giro', {
+            url: '/giro',
+            templateUrl: 'templates/giros.html',
+            controller: 'GiroCtrl'
+        })
         .state('app.registrarVehiculo', {
             url: '/registrar-vehiculo',
             views: {
@@ -45,6 +60,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
+        
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
