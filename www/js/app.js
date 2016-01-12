@@ -16,11 +16,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
     .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
-        .state('home', {
-            url: '/home',
-            templateUrl: 'templates/principal.html',
-            controller: 'HomeCtrl'
-        })
+        
         .state('login',{
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -57,6 +53,15 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                 'menuContent': {
                     //controller: 'HomeCtrl',
                     templateUrl: 'templates/registrar-vehiculo.html'
+                }
+            }
+        })
+        .state('app.home', {
+            url: '/home',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/principal.html',
+                    controller: 'HomeCtrl'
                 }
             }
         })

@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
     
         $scope.login = function(){
             //mostarAlert("Login Correcto",LoginService.logearse($scope.usuario));
-            $location.path("/home");
+            $location.path("app/home");
         }
         
         function mostarAlert(titulo,contenido){
@@ -72,20 +72,20 @@ angular.module('starter.controllers', [])
     .controller('PasajerosCtrl',function($scope,$location){
         
         $scope.volver = function(){
-            $location.path("/home");
+            $location.path("app/home");
         }
     
     })
 
     .controller('EncomiendaCtrl',function($scope,$location){
         $scope.volver = function(){
-            $location.path("/home");
+            $location.path("app/home");
         }
     })
 
     .controller('GiroCtrl',function($scope,$location){
         $scope.volver = function(){
-            $location.path("/home");
+            $location.path("app/home");
         }
     })
 ;
