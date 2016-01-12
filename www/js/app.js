@@ -56,6 +56,15 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
+        .state('app.documentosVehiculo', {
+            url: '/documentos-vehiculo',
+            views: {
+                'menuContent': {
+                    //controller: 'HomeCtrl',
+                    templateUrl: 'templates/documentacion-vehiculo.html'
+                }
+            }
+        })
         .state('app.home', {
             url: '/home',
             views: {
