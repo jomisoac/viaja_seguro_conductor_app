@@ -8,8 +8,8 @@
 }
 
 .padding-button{
-    padding-top: 25%;
-    padding-bottom: 25%;
+    padding-top: 15%;
+    padding-bottom: 15%;
 }
 
 .padding-notificacion{
@@ -18,4 +18,20 @@
 
 .card{
     box-shadow: 0 1px 3px rgba(214, 35, 35, 0.3);
+}
+
+.notificacion{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.item-center {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.icon-size{
+    font-size: 30px;
 }
