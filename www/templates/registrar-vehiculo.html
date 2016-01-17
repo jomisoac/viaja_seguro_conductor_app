@@ -38,7 +38,7 @@
                     <span class="input-label">Cupo:</span>
                     <input type="number" name="cupo" ng-model="vehiculo.cupo" ng-required="true">
                 </label>
-                <a class="item positive" href="#">Documentación Vehículo</a>
+                <a class="item positive" ui-sref="app.documentosVehiculo">Documentación Vehículo</a>
                 <button 
                     class="button button-block button-positive" 
                     ng-click="registarConductor()" ng-disabled="formVehiculo.$invalid">Registrar

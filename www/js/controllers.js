@@ -12,6 +12,10 @@ angular.module('starter.controllers', [])
                 $location.path("/giro");
             }
         }
+        
+        $scope.logout = function(){
+            $location.path("/login");
+        }
             
         function mostarAlert(titulo,contenido){
             var alertPopup = $ionicPopup.alert({

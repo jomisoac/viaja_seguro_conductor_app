@@ -74,7 +74,33 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
-        
+        .state('app.gremioConductores', {
+            url: '/gremio-conductores',
+            views: {
+                'menuContent': {
+                    //controller: 'HomeCtrl',
+                    templateUrl: 'templates/gremio-conductores.html',
+                }
+            }
+          }) 
+        .state('app.reportarAusencia', {
+            url: '/reportar-ausencia',
+            views: {
+                'menuContent': {
+                    //controller: 'HomeCtrl',
+                    templateUrl: 'templates/reportar-ausencia.html',
+                }
+            }
+          }) 
+        .state('app.configuracion', {
+            url: '/configuracion',
+            views: {
+                'menuContent': {
+                    //controller: 'HomeCtrl',
+                    templateUrl: 'templates/configuracion.html',
+                }
+            }
+          }) 
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
