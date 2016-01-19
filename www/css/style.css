@@ -44,10 +44,11 @@
 }
 
 .img-perfil{
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 60px;
+    max-height: 60px;
     margin-left: 5%;
     margin-top: 10%;
+    border:2px solid #FFFFFF";
 }
 
 .img-rounded{
