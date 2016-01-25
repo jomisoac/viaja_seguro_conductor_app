@@ -1,4 +1,4 @@
-var app  = angular.module('starter', ['ionic', 'starter.controllers'])
+var app  = angular.module('starter', ['ionic', 'starter.controllers', 'angular-jwt'])
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -16,7 +16,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
     .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
-        
+
         .state('login',{
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -82,7 +82,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                     templateUrl: 'templates/gremio-conductores.html',
                 }
             }
-          }) 
+          })
         .state('app.reportarAusencia', {
             url: '/reportar-ausencia',
             views: {
@@ -91,7 +91,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                     templateUrl: 'templates/reportar-ausencia.html',
                 }
             }
-          }) 
+          })
         .state('app.configuracion', {
             url: '/configuracion',
             views: {
@@ -100,7 +100,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
                     templateUrl: 'templates/configuracion.html',
                 }
             }
-          }) 
+          })
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
