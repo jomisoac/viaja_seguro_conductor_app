@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jwt'])
     .run(function($ionicPlatform,$window) {
         $window.localStorage['usuario'] = null;
+=======
+var app  = angular.module('starter', ['ionic', 'starter.controllers', 'angular-jwt'])
+    .run(function($ionicPlatform) {
+>>>>>>> 8e5e5ca7612e354dacd73ce897c84b106f7e7eea
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -17,7 +22,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
     .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
-        
+
         .state('login',{
             url: '/login',
             templateUrl: 'templates/login.html',
@@ -83,7 +88,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
                     templateUrl: 'templates/gremio-conductores.html',
                 }
             }
-          }) 
+          })
         .state('app.reportarAusencia', {
             url: '/reportar-ausencia',
             views: {
@@ -92,7 +97,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
                     templateUrl: 'templates/reportar-ausencia.html',
                 }
             }
-          }) 
+          })
         .state('app.configuracion', {
             url: '/configuracion',
             views: {
@@ -101,7 +106,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
                     templateUrl: 'templates/configuracion.html',
                 }
             }
-          }) 
+          })
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
