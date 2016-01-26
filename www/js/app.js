@@ -1,5 +1,6 @@
-var app  = angular.module('starter', ['ionic', 'starter.controllers'])
-    .run(function($ionicPlatform) {
+var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jwt'])
+    .run(function($ionicPlatform,$window) {
+        $window.localStorage['usuario'] = null;
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -51,7 +52,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             url: '/registrar-vehiculo',
             views: {
                 'menuContent': {
-                    //controller: 'HomeCtrl',
+                    controller: 'VehiculoCtrl',
                     templateUrl: 'templates/registrar-vehiculo.html'
                 }
             }
@@ -78,7 +79,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers'])
             url: '/gremio-conductores',
             views: {
                 'menuContent': {
-                    //controller: 'HomeCtrl',
+                    controller: 'GremioCtrl',
                     templateUrl: 'templates/gremio-conductores.html',
                 }
             }

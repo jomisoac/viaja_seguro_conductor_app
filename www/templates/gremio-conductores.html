@@ -1,41 +1,9 @@
 <ion-view view-title="Gremio de Conductores">
     <ion-content>
-        <div class="list">
+        <div class="list" ng-repeat="consuctor in listaConductores">
             <div class="item item-avatar">
                 <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
-            </div>
-            <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
-                <h2>Nombre del conductor</h2>
+                <h2>{{conductor.nombres }} {{conductor.apellidos}}</h2>
             </div>
         </div>
     </ion-content>

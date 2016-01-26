@@ -11,13 +11,13 @@
                 <span class="input-label">Identificación:</span>
                 <input 
                        type="number" 
-                       name="docuento" ng-model="conductor.numeroDocumento" ng-required="true">
+                       name="docuento" ng-model="conductor.identificacion" ng-required="true">
             </label>
             <label class="item item-input input-bottom">
                 <i class="icon ion-person placeholder-icon"></i>
                 &nbsp;
                 <span class="input-label">Nombres:</span>
-                <input type="text" name="nombre" ng-model="conductor.nombre" ng-required="true">
+                <input type="text" name="nombre" ng-model="conductor.nombres" ng-required="true">
             </label>
             <label class="item item-input input-bottom">
                 <i class="icon ion-person placeholder-icon"></i>
@@ -63,6 +63,7 @@
                     Correo Inválido
                 </span>
             </label>
+            <!--
             <label class="item item-input item-stacked-label input-bottom">
                 <span>Fecha de Nacimiento</span>
                 <input type="date" name="fechaNacimiento" ng-model="conductor.fecha"
@@ -72,6 +73,7 @@
                     Campo Obligatorio
                 </span>
             </label>
+            -->
             <button 
                     class="button button-block button-positive" 
                     ng-click="registarConductor()" ng-disabled="formConductor.$invalid">Registrar
