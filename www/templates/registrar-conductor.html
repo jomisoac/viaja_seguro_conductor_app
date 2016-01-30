@@ -53,7 +53,7 @@
                 <i class="icon ion-key placeholder-icon"></i>
                 &nbsp;
                 <span class="input-label">Confirmar Contraseña:</span>
-                <input type="password" name="confirmarContrasena" ng-model="confirmarContrasena" ng-required="true">
+                <input type="password" name="confirmarContrasena" ng-model="conductor.confirmarContrasena" ng-required="true">
             </label>
             <label class="item item-input item-select item-light">
                 <div class="input-label">Empresa</div>
@@ -66,7 +66,7 @@
                     class="button button-block button-positive" 
                     ng-click="registarConductor()" ng-disabled="formConductor.$invalid">Registrar
             </button>
-            <span class="text-center positive" ng-show="mostrarAdvertencia">Las contraseñas con coinciden</span>
+            <span class="text-center positive" ng-show="mostrarAdvertencia">Las contraseñas no coinciden</span>
         </div>
     </form>
 </ion-content>

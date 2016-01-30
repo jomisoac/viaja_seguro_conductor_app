@@ -108,6 +108,7 @@ angular.module('starter.controllers', [])
     .controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService) {
         $scope.$on('$ionicView.enter',function(){
             $scope.conductor = {};
+            $scope.mostrarAdvertencia = false;
         });
         $scope.listaEmpesas = [];
     
@@ -124,8 +125,7 @@ angular.module('starter.controllers', [])
 
         $scope.registarConductor = function(){
             $scope.conductor.rol = "CONDUCTOR";
-            
-            if($scope.conductor.contrasena === $scope.confirmarContrasena ){
+            if($scope.conductor.contrasena == $scope.conductor.confirmarContrasena ){
                 ConductorService.registrar($scope.conductor).then(
                 function(respuesta){
                     if(respuesta.statusText == "OK"){
