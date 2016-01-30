@@ -1,9 +1,11 @@
 <ion-view view-title="Gremio de Conductores">
     <ion-content>
-        <div class="list" ng-repeat="consuctor in listaConductores">
+        <div ng-repeat="conductor in listaConductores">
             <div class="item item-avatar">
-                <img ng-src="img/ionic.png">
+                <img src="http://localhost{{conductor.imagen}}">
                 <h2>{{conductor.nombres }} {{conductor.apellidos}}</h2>
+                <p>Identificación: {{conductor.identificacion}}</p>
+                <p>Telefono: {{conductor.telefono}}</p>
             </div>
         </div>
     </ion-content>

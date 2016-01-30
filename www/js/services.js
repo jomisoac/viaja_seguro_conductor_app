@@ -1,11 +1,11 @@
 app.service("ConductorService", function($http,$window){
-    var url = "http://localhost/viaja_seguro/public/api/empresa/conductores/"
     
-    this.getAll = function()
+    this.getAll = function(id)
     {
         var pet = {
             method: 'GET',
-            url: 'http://localhost/viaja_seguro/public/api/empresa/conductores/',
+            url: 'http://localhost/viaja_seguro/public/api/empresas/'+id+'/conductores',
+            //url: 'http://localhost/viaja_seguro/public/api/empresa/'+id+'/conductores/',
             headers: {
                 'Authorization': 'Bearer '+$window.localStorage['token']
             }
@@ -16,7 +16,7 @@ app.service("ConductorService", function($http,$window){
     this.getById = function(id){
         var pet = {
             method: 'GET',
-            url: 'http://localhost/viaja_seguro/public/api/empresa/conductores/'+id,
+            url: 'http://localhost/viaja_seguro/public/api/conductores/'+id,
             headers: {
                 'Authorization': 'Bearer '+$window.localStorage['token']
             }
@@ -24,7 +24,8 @@ app.service("ConductorService", function($http,$window){
         return $http(pet);
     }
     
-    this.registrar = function(conductor){    
+    this.registrar = function(conductor){
+        var url = 'http://localhost/viaja_seguro/public/api/usuarios/conductores';
         return $http.post(url,conductor);
     }
 
@@ -60,16 +61,32 @@ app.service('LoginService',function($http, $location, jwtHelper){
 });
 
 app.service('VehiculoService',function($http,$window){
-    var url = "http://localhost/viaja_seguro/public/api/empresa/vehiculos/";
     this.getById = function (id){
          var pet = {
             method: 'GET',
-            url: url+id,
+            url: 'http://localhost/viaja_seguro/public/api/conductores/'+id+'/vehiculo',
             headers: {
                 'Authorization': 'Bearer '+$window.localStorage['token']
             }
         };
-        
         return $http(pet);
-    };
+    }
+    
+    this.actualizar = function(vehiculo){
+        var pet = {
+            method: 'GET',
+            url: 'http://localhost/viaja_seguro/public/api/vehiculos/'+vehiculo.id,
+            headers: {
+                'Authorization': 'Bearer '+$window.localStorage['token']
+            },
+            data : vehiculo
+        };
+        return $http(pet);
+    }
+});
+
+app.service('EmpresaService',function($http){
+   this.getAll = function (){
+       return $http.get('http://localhost/viaja_seguro/public/api/empresas');
+    } 
 });

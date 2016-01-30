@@ -12,19 +12,19 @@
                     <i class="icon ion-android-car placeholder-icon"></i>
                     &nbsp;
                     <span class="input-label">Modelo:</span>
-                    <input type="number" name="modelo" ng-model="vehiculo.modelo" ng-required="true">
+                    <input type="text" name="modelo" ng-model="vehiculo.modelo" ng-required="true">
                 </label>
                 <label class="item item-input input-bottom">
                     <i class="icon ion-android-person placeholder-icon"></i>
                     &nbsp;
                     <span class="input-label">Conductor:</span>
-                    <input type="text" name="conductor" ng-model="vehiculo.conductor" ng-required="true">
+                    <input type="text" name="conductor" ng-model="vehiculo.conductor_id" ng-required="true">
                 </label>
                 <label class="item item-input input-bottom">
                     <i class="icon ion-android-image placeholder-icon"></i>
                     &nbsp;
                     <span class="input-label">Foto:</span>
-                    <input type="text" name="foto" ng-model="vehiculo.foto" ng-required="true">
+                    <input type="text" name="foto" ng-model="vehiculo.foto">
                 </label>
                 <label class="item item-input input-bottom">
                     <i class="icon ion-android-color-palette placeholder-icon"></i>
@@ -36,12 +36,12 @@
                     <i class="icon ion-ios-people placeholder-icon"></i>
                     &nbsp;
                     <span class="input-label">Cupo:</span>
-                    <input type="number" name="cupo" ng-model="vehiculo.cupo" ng-required="true">
+                    <input type="number" name="cupo" ng-model="vehiculo.cupos" ng-required="true">
                 </label>
                 <a class="item positive" ui-sref="app.documentosVehiculo">Documentación Vehículo</a>
                 <button 
                     class="button button-block button-positive" 
-                    ng-click="registarConductor()" ng-disabled="formVehiculo.$invalid">Registrar
+                    ng-click="registarActualizar()" ng-disabled="formVehiculo.$invalid">Registrar
                 </button>
             </div>
         </form>

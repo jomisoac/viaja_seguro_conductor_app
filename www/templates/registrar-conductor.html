@@ -24,60 +24,49 @@
                 &nbsp;
                 <span class="input-label">Apellidos:</span>
                 <input type="text" name="apellidos" ng-model="conductor.apellidos" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.apellidos.$pristine && formConductor.apellidos.$error.required">
-                    Campo Obligatorio
-                </span>
             </label>
             <label class="item item-input input-bottom">
                 <i class="icon ion-android-pin placeholder-icon"></i>
                 &nbsp;
                 <span class="input-label">Dirección:</span>
                 <input type="text" name="direccion" ng-model="conductor.direccion" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.direccion.$pristine && formConductor.direccion.$error.required">
-                    Campo Obligatorio
-                </span>
             </label>
             <label class="item item-input input-bottom">
                 <i class="icon ion-android-phone-portrait placeholder-icon"></i>
                 &nbsp;
                 <span class="input-label">Telefono:</span>
                 <input type="number" name="telefono" ng-model="conductor.telefono" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.telefono.$pristine && formConductor.telefono.$error.required">
-                    Campo Obligatorio
-                </span>
             </label>
             <label class="item item-input input-bottom">
                 <i class="icon ion-email placeholder-icon"></i>
                 &nbsp;
                 <span class="input-label">Correo:</span>
                 <input type="email" name="correo" ng-model="conductor.correo" ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.correo.$pristine && formConductor.correo.$error.required">
-                    Campo Obligatorio
-                </span>
-                <span class="assertive" 
-                  ng-show="!formConductor.correo.$pristine && formConductor.correo.$error.email">
-                    Correo Inválido
-                </span>
             </label>
-            <!--
-            <label class="item item-input item-stacked-label input-bottom">
-                <span>Fecha de Nacimiento</span>
-                <input type="date" name="fechaNacimiento" ng-model="conductor.fecha"
-                       ng-required="true">
-                <span class="assertive" 
-                  ng-show="!formConductor.fechaNacimiento.$pristine && formConductor.fechaNacimiento.$error.required">
-                    Campo Obligatorio
-                </span>
+            <label class="item item-input input-bottom">
+                <i class="icon ion-key placeholder-icon"></i>
+                &nbsp;
+                <span class="input-label">Contraseña:</span>
+                <input type="password" name="contrasena" ng-model="conductor.contrasena" ng-required="true">
             </label>
-            -->
+            <label class="item item-input input-bottom">
+                <i class="icon ion-key placeholder-icon"></i>
+                &nbsp;
+                <span class="input-label">Confirmar Contraseña:</span>
+                <input type="password" name="confirmarContrasena" ng-model="confirmarContrasena" ng-required="true">
+            </label>
+            <label class="item item-input item-select item-light">
+                <div class="input-label">Empresa</div>
+                <select ng-model="conductor.empresa_id" name="empresa" ng-required="true">
+                    <option ng-repeat="empresa in listaEmpesas" value="{{empresa.id}}">{{empresa.nombre}}</option>
+                </select> 
+            </label>
+        
             <button 
                     class="button button-block button-positive" 
                     ng-click="registarConductor()" ng-disabled="formConductor.$invalid">Registrar
             </button>
+            <span class="text-center positive" ng-show="mostrarAdvertencia">Las contraseñas con coinciden</span>
         </div>
     </form>
 </ion-content>

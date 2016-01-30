@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jwt'])
     .run(function($ionicPlatform,$window) {
         $window.localStorage['usuario'] = null;
-=======
-var app  = angular.module('starter', ['ionic', 'starter.controllers', 'angular-jwt'])
-    .run(function($ionicPlatform) {
->>>>>>> 8e5e5ca7612e354dacd73ce897c84b106f7e7eea
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
