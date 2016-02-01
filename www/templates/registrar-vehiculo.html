@@ -1,7 +1,7 @@
 <ion-view view-title="Registrar Vehiculo">
     <ion-content>
         <form name="formVehiculo">
-            <div class="list list-inset">
+          <div class="list list-inset">
                 <label class="item item-input input-bottom">
                     <i class="icon ion-card placeholder-icon"></i>
                     &nbsp;
@@ -39,12 +39,12 @@
                     <input type="number" name="cupo" ng-model="vehiculo.cupos" ng-required="true">
                 </label>
                 <a class="item positive" ui-sref="app.documentosVehiculo">Documentación Vehículo</a>
-                <button 
-                    class="button button-block button-positive" 
+                <button
+                    class="button button-block button-positive"
                     ng-click="registarActualizar()" ng-disabled="formVehiculo.$invalid">Registrar
                 </button>
             </div>
         </form>
-        
+
     </ion-content>
 </ion-view>

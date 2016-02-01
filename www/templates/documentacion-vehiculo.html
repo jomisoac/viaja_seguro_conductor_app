@@ -1,17 +1,6 @@
 <ion-view view-title="Documentos del Vehículo">
     <ion-content>
         <ion-list>
-            <ion-checkbox ng-model="documento.seguro">Seguro</ion-checkbox>
-            <div ng-show="documento.seguro" class="list list-inset">
-                <label class="item item-input item-stacked-label input-bottom">
-                    <span>Fecha de Expedición</span>
-                    <input type="date" name="fechaNacimiento" ng-model="documento.fechaExpedicionSeguro">
-                </label>
-                <label class="item item-input item-stacked-label input-bottom">
-                    <span>Fecha de Vencimiento</span>
-                    <input type="date" name="fechaNacimiento" ng-model="documento.fechaVencimientoSeguro">
-                </label>
-            </div>
             <ion-checkbox ng-model="documento.soat">SOAT</ion-checkbox>
             <div ng-show="documento.soat" class="list list-inset">
                 <label class="item item-input item-stacked-label input-bottom">
