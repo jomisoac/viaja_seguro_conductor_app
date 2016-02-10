@@ -4,45 +4,14 @@
 </ion-header-bar>
 <ion-content>
     <div class="list">
-        <div class="item item-avatar">
+        <div class="item item-avatar" ng-repeat="encomienda in listaEncomiendas">
             <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Paquete</h2>
-            <p>Cliente</p>
+            <h2>Remitente: {{encomienda.nombres}}</h2>
+            <p>Receptor: {{encomienda.nombre_receptor}}</p>
+            <p>Dirección destino: {{encomienda.direccionD}}</p>
+            <p>Telefono remitente: {{encomienda.telefono}}</p>
+            <p>Telefono receptor: {{encomienda.telefono_receptor}}</p>
         </div>
     </div>
-</ion-content>
+    <div ng-controller="TimerCtrl"></div>
+</ion-content>e

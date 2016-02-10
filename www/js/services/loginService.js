@@ -1,7 +1,9 @@
-app.service('LoginService',function($http, $location, jwtHelper){
+app.service('LoginService',function($http, $location, jwtHelper,$window){
 
+    var uri = $window.localStorage['uri'];
+    
   this.login = function (usuario){
-    return $http.post('http://localhost/viaja_seguro/public/api/login', usuario);
+    return $http.post(uri+'/api/login', usuario);
   };
 
   this.storeUser = function (jwt) {

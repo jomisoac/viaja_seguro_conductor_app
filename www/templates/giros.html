@@ -4,39 +4,14 @@
 </ion-header-bar>
 <ion-content>
     <div class="list">
-        <div class="item item-avatar">
+        <div class="item item-avatar" ng-repeat="giro in listaGiros">
             <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
+            <h2>Remitente: {{giro.nombres}}</h2>
+            <p>Receptor: {{giro.nombre_receptor}}</p>
+            <p>Dirección destino: {{giro.direccionD}}</p>
+            <p>Telefono remitente: {{giro.telefono}}</p>
+            <p>Telefono receptor: {{giro.telefono_receptor}}</p>
+            <p><strong>Monto: {{giro.monto | currency}}</strong></p>
         </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="item item-avatar">
-            <img ng-src="img/ionic.png">
-            <h2>Monto</h2>
-            <p>Cliente</p>
-        </div>
+        <div ng-controller="TimerCtrl"></div>
 </ion-content>

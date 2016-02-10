@@ -1,7 +1,8 @@
 
-var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jwt'])
+var app  = angular.module('starter', ['ionic','ionic.service.core','starter.controllers','angular-jwt'])
     .run(function($ionicPlatform,$window) {
         $window.localStorage['usuario'] = null;
+        $window.localStorage['uri'] = 'http://dev.viajaseguro.co/public';
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -15,7 +16,8 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
             }
         });
     })
-    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider) {
+        
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
 
@@ -62,7 +64,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
             url: '/documentos-vehiculo',
             views: {
                 'menuContent': {
-                    //controller: 'HomeCtrl',
+                    controller: 'VehiculoCtrl',
                     templateUrl: 'templates/documentacion-vehiculo.html'
                 }
             }
@@ -106,4 +108,7 @@ var app  = angular.module('starter', ['ionic', 'starter.controllers','angular-jw
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
+        
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
     });

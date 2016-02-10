@@ -2,11 +2,12 @@
     <ion-content>
         <div ng-repeat="conductor in listaConductores">
             <div class="item item-avatar">
-                <img src="http://localhost{{conductor.imagen}}">
+                <img src="{{conductor.imagen}}">
                 <h2>{{conductor.nombres }} {{conductor.apellidos}}</h2>
                 <p>Identificación: {{conductor.identificacion}}</p>
                 <p>Telefono: {{conductor.telefono}}</p>
             </div>
         </div>
+        <div ng-controller="TimerCtrl"></div>
     </ion-content>
 </ion-view>

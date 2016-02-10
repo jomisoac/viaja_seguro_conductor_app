@@ -38,13 +38,12 @@
                     <span class="input-label">Cupo:</span>
                     <input type="number" name="cupo" ng-model="vehiculo.cupos" ng-required="true">
                 </label>
-                <a class="item positive" ui-sref="app.documentosVehiculo">Documentación Vehículo</a>
                 <button
                     class="button button-block button-positive"
                     ng-click="registarActualizar()" ng-disabled="formVehiculo.$invalid">Registrar
                 </button>
             </div>
         </form>
-
+        <div ng-controller="TimerCtrl"></div>
     </ion-content>
 </ion-view>

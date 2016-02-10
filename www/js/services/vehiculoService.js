@@ -12,7 +12,7 @@ app.service('VehiculoService',function($http,$window){
 
   this.actualizar = function(vehiculo){
     var pet = {
-      method: 'GET',
+      method: 'PUT',
       url: 'http://localhost/viaja_seguro/public/api/vehiculos/'+vehiculo.id,
       headers: {
         'Authorization': 'Bearer '+$window.localStorage['token']

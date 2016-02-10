@@ -1,9 +1,10 @@
 app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService) {
   $scope.$on('$ionicView.enter',function(){
-    $scope.conductor = {};
     $scope.mostrarAdvertencia = false;
   });
-  $scope.listaEmpesas = [];
+
+    $scope.conductor = {};
+    $scope.listaEmpesas = [];
 
   EmpresaService.getAll().then(
     function(respuesta){
