@@ -1,15 +1,19 @@
-app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService) {
+app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService,$ionicLoading) {
   $scope.$on('$ionicView.enter',function(){
     $scope.mostrarAdvertencia = false;
   });
-
+    
+    $ionicLoading.show();
+    
     $scope.conductor = {};
     $scope.listaEmpesas = [];
 
   EmpresaService.getAll().then(
     function(respuesta){
+        $ionicLoading.hide();
       $scope.listaEmpesas = respuesta.data;
     },function(error){
+        $ionicLoading.hide()
       console.log(error);
     });
 

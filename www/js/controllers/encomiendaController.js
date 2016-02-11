@@ -1,4 +1,6 @@
-app.controller('EncomiendaCtrl',function($scope,$location,EncomiendaService,$rootScope){
+app.controller('EncomiendaCtrl',function($scope,$location,EncomiendaService,$rootScope,$ionicLoading){
+    
+    $ionicLoading.show();
     
     $scope.listaEncomiendas = [];
     $scope.encomienda = {};
@@ -10,7 +12,9 @@ app.controller('EncomiendaCtrl',function($scope,$location,EncomiendaService,$roo
     EncomiendaService.getAll($rootScope.placa).then(
       function(respuesta){
           $scope.listaEncomiendas = respuesta.data;
+          $ionicLoading.hide();
       },function(error){
+          $ionicLoading.hide();
           console.log(error);
       }
   );

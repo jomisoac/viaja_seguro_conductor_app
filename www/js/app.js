@@ -1,5 +1,5 @@
 
-var app  = angular.module('starter', ['ionic','ionic.service.core','starter.controllers','angular-jwt'])
+var app  = angular.module('starter', ['ionic','ionic.service.core','ngCordova','ionic.service.push','starter.controllers','angular-jwt'])
     .run(function($ionicPlatform,$window) {
         $window.localStorage['usuario'] = null;
         $window.localStorage['uri'] = 'http://dev.viajaseguro.co/public';
@@ -16,8 +16,8 @@ var app  = angular.module('starter', ['ionic','ionic.service.core','starter.cont
             }
         });
     })
-    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider) {
-        
+    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider,$ionicAppProvider) {
+                
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
 

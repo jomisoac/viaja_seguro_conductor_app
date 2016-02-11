@@ -1,10 +1,11 @@
-app.controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService,$window,jwtHelper){
+app.controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService,$window,jwtHelper,$ionicLoading){
     $scope.$on('$ionicView.enter',function(){
         $scope.usuario = {};
         $scope.matenerSesion = false
     });
     
     $scope.iniciarSesion = function(){
+        $ionicLoading.show();
         LoginService.login($scope.usuario).then(success, error);
         function success(p) {
             var conductor = jwtHelper.decodeToken(p.data.token);
@@ -18,8 +19,10 @@ app.controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService,$w
                     }
                 $location.path("app/home");
             }
+            $ionicLoading.hide();
         }
         function error(error) {
+            $ionicLoading.hide();
             mostarAlert("Error login","Error al logear verifique que los datos ingresados sean correctos");
             //$scope.mensajeError = error.status == 401 ? error.data.mensajeError : 'A ocurrido un erro inesperado';
         }

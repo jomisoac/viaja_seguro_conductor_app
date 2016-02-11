@@ -1,8 +1,10 @@
-app.controller('VehiculoCtrl',function($scope,VehiculoService,$rootScope,$ionicPopup,$location,$filter){
+app.controller('VehiculoCtrl',function($scope,VehiculoService,$rootScope,$ionicPopup,$location,$filter,$ionicLoading){
   $scope.$on('$ionicView.enter',function(){
     var informacionVehiculo = false;
     $scope.date = new Date();
   });
+
+    $ionicLoading.show();
     
     $scope.vehiculo = {};
 
@@ -14,20 +16,25 @@ app.controller('VehiculoCtrl',function($scope,VehiculoService,$rootScope,$ionicP
         $scope.vehiculo = respuesta.data;
         $scope.vehiculo.fecha_soat = new Date(respuesta.data.fecha_soat);
         $scope.vehiculo.fecha_tecnomecanica = new Date(respuesta.data.fecha_tecnomecanica);
+          $ionicLoading.hide();
       }
     }
     ,function(error){
       console.log(error);
+        $ionicLoading.hide();
     });
 
   $scope.registarActualizar = function(){
+      $ionicLoading.show();
     if(informacionVehiculo){
       VehiculoService.actualizar($scope.vehiculo).then(
         function(respuesta){
           if(respuesta.statusText == "OK"){
+              $ionicLoading.hide();
               mostarAlert("Actualizacion del Vehiculo","Vehiculo actualizado correctamente.");
           }
         },function(error){
+            $ionicLoading.hide();
           console.log(error);
         });
     }

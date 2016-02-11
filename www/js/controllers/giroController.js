@@ -1,4 +1,5 @@
-app.controller('GiroCtrl',function($scope,$location,GirosService,$rootScope){
+app.controller('GiroCtrl',function($scope,$location,GirosService,$rootScope,$ionicLoading){
+    $ionicLoading.show();
     $scope.listaGiros = [];
     $scope.giro = {};
     
@@ -9,8 +10,10 @@ app.controller('GiroCtrl',function($scope,$location,GirosService,$rootScope){
     GirosService.getAll($rootScope.placa).then(
       function(respuesta){
           $scope.listaGiros = respuesta.data;
+          $ionicLoading.hide();
       },function(error){
           console.log(error);
+          $ionicLoading.hide();
       }
   );
     

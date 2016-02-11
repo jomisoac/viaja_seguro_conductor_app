@@ -1,16 +1,21 @@
-app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,ConductorService,$location,$timeout){    
+app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,ConductorService,$location,$timeout,$ionicLoading,$ionicUser, $ionicPush){    
+    
+    $ionicLoading.show();
     $rootScope.placa;
     $rootScope.gremio;
     $scope.conductor;
     var conductorId = JSON.parse($window.localStorage['conductor']);
+    console.log(conductorId)
     ConductorService.getById(conductorId.usuario.nombre).then(
         function(respuesta){
             $scope.conductor = respuesta.data;
             $rootScope.gremio = $scope.conductor.empresa_id;
             $rootScope.placa = $scope.conductor.id;
+            $ionicLoading.hide($scope.conductor.id);
             RegistrarPush();
         }
         ,function(error){
+            $ionicLoading.hide();
         }
     );
     
@@ -40,23 +45,22 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
                 }
             }
         });
-
+        
         var user = Ionic.User.current();
-
+        
         if (!user.id) {
-            user.id = ""+$scope.conductor.conductor_id;
+            user.id = conductorId.usuario.nombre;
         }
-
-        // Just add some dummy data..
+        
         user.set('name', $scope.conductor.nombres+" "+$scope.conductor.apellidos);
+        user.set('description', 'Conductor');
         user.save();
-
+        
         var callback = function(data) {
-          push.addTokenToUser(user);
-          user.save();
+            push.addTokenToUser(user);
+            user.save();
         };
         push.register(callback);
-
-        }
-    
+    }
+        
 });
