@@ -3,6 +3,7 @@ app.service('GeolocalizacionService',function($http,$window){
     var uri = $window.localStorage['uri'];
   
   this.guardar = function(posicion){
+      console.log($window.localStorage['token']);
     var pet = {
       method: 'POST',
       url: uri+'/api/conductores/'+posicion.conductor_id+'/ubicacion',

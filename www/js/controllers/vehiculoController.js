@@ -17,11 +17,14 @@ app.controller('VehiculoCtrl',function($scope,VehiculoService,$rootScope,$ionicP
         $scope.vehiculo.fecha_soat = new Date(respuesta.data.fecha_soat);
         $scope.vehiculo.fecha_tecnomecanica = new Date(respuesta.data.fecha_tecnomecanica);
           $ionicLoading.hide();
+      }else{
+          $scope.vehiculo.conductor_id = $rootScope.placa;
       }
     }
     ,function(error){
       console.log(error);
         $ionicLoading.hide();
+        $scope.vehiculo.conductor_id = $rootScope.placa;
     });
 
   $scope.registarActualizar = function(){

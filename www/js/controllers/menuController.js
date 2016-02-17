@@ -12,7 +12,6 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
             $rootScope.gremio = $scope.conductor.empresa_id;
             $rootScope.placa = $scope.conductor.id;
             $ionicLoading.hide($scope.conductor.id);
-            RegistrarPush();
         }
         ,function(error){
             $ionicLoading.hide();
@@ -23,6 +22,28 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
         $location.path("/login");
     }
     
+    
+    Ionic.io();
+var push = new Ionic.Push();
+var user = Ionic.User.current();
+
+// if the user doesn't have an id, you'll need to give it one.
+if (!user.id) {
+  user.id = Ionic.User.anonymousId();
+}
+
+user.set('name', $rootScope.user_name);
+user.set('bio', $rootScope.user_bio);
+user.save();
+
+ var callback = function(data) {
+   console.log('Registered token:', data.token);
+   console.log(data.token);
+   push.addTokenToUser(user);
+   user.save();
+}
+push.register(callback);
+    
     function mostarAlert(titulo,contenido){
         var alertPopup = $ionicPopup.alert({
             title: titulo,
@@ -31,36 +52,11 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
         alertPopup.then(function (res) {
             $scope.conductor = {};
         });
-    }
+    } 
     
-    function RegistrarPush(){
-        var io = Ionic.io();
-        var push = new Ionic.Push({
-            "onNotification": function(notification) {
-                alert('Received push notification!');
-            },
-            "pluginConfig": {
-                "android": {
-                    "iconColor": "#0000FF"
-                }
-            }
-        });
-        
-        var user = Ionic.User.current();
-        
-        if (!user.id) {
-            user.id = conductorId.usuario.nombre;
-        }
-        
-        user.set('name', $scope.conductor.nombres+" "+$scope.conductor.apellidos);
-        user.set('description', 'Conductor');
-        user.save();
-        
-        var callback = function(data) {
-            push.addTokenToUser(user);
-            user.save();
-        };
-        push.register(callback);
-    }
-        
+    $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
+        alert("Successfully registered token " + data.token);
+        console.log('Ionic Push: Got token ', data.token, data.platform);
+        $scope.token = data.token;
+    });
 });

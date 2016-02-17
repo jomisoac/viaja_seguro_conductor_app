@@ -23,7 +23,7 @@ app.controller('LoginCtrl',function($scope,$ionicPopup,$location,LoginService,$w
         }
         function error(error) {
             $ionicLoading.hide();
-            mostarAlert("Error login","Error al logear verifique que los datos ingresados sean correctos");
+            console.log(error);
             //$scope.mensajeError = error.status == 401 ? error.data.mensajeError : 'A ocurrido un erro inesperado';
         }
   }

@@ -1,8 +1,9 @@
 app.service('VehiculoService',function($http,$window){
+  var uri = $window.localStorage['uri'];
   this.getById = function (id){
     var pet = {
       method: 'GET',
-      url: 'http://localhost/viaja_seguro/public/api/conductores/'+id+'/vehiculo',
+      url: uri+'/api/conductores/'+id+'/vehiculo',
       headers: {
         'Authorization': 'Bearer '+$window.localStorage['token']
       }
@@ -13,7 +14,7 @@ app.service('VehiculoService',function($http,$window){
   this.actualizar = function(vehiculo){
     var pet = {
       method: 'PUT',
-      url: 'http://localhost/viaja_seguro/public/api/vehiculos/'+vehiculo.id,
+      url: uri+'/api/vehiculos/'+vehiculo.id,
       headers: {
         'Authorization': 'Bearer '+$window.localStorage['token']
       },

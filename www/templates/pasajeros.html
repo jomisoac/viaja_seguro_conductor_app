@@ -11,5 +11,8 @@
             <p><button class="button button-small button-positive">Recoger Pasajero</button></p>
         </div>
     </div>
+    <div ng-show="!mostrarAdvertencia" class="text-center">
+        <strong class="positive">El conductor no registra pasajeros pendientes</strong>
+    </div>
     <div ng-controller="TimerCtrl"></div>
 </ion-content>

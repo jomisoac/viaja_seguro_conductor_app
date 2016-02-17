@@ -1,6 +1,6 @@
 
-var app  = angular.module('starter', ['ionic','ionic.service.core','ngCordova','ionic.service.push','starter.controllers','angular-jwt'])
-    .run(function($ionicPlatform,$window) {
+var app  = angular.module('starter', ['ionic','ionic.service.core','starter.controllers','angular-jwt','ngCordova','ionic.service.push'])
+    .run(function($ionicPlatform,$window,$cordovaPush) {
         $window.localStorage['usuario'] = null;
         $window.localStorage['uri'] = 'http://dev.viajaseguro.co/public';
         $ionicPlatform.ready(function() {
@@ -13,11 +13,17 @@ var app  = angular.module('starter', ['ionic','ionic.service.core','ngCordova','
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
-            }
+            } 
         });
     })
-    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider,$ionicAppProvider) {
-                
+    .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider,$ionicAppProvider) {        
+        
+        $ionicAppProvider.identify({
+            app_id: 'bca4d7be',
+            api_key: '11d9c3ab96ca81e5241e1448cd7d5dabe512d8a8e91d2036',
+            dev_push: true
+        });
+        
         $ionicConfigProvider.navBar.alignTitle('center')
         $stateProvider
 

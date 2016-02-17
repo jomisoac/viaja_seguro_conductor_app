@@ -1,7 +1,5 @@
 app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService,$ionicLoading) {
-  $scope.$on('$ionicView.enter',function(){
-    $scope.mostrarAdvertencia = false;
-  });
+  $scope.mostrarAdvertencia = false;
     
     $ionicLoading.show();
     
