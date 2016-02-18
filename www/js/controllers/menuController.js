@@ -12,6 +12,8 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
             $rootScope.gremio = $scope.conductor.empresa_id;
             $rootScope.placa = $scope.conductor.id;
             $ionicLoading.hide($scope.conductor.id);
+            registrarUsuario($scope.conductor);
+            resgistrarToken();
         }
         ,function(error){
             $ionicLoading.hide();
@@ -22,28 +24,39 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
         $location.path("/login");
     }
     
+    function registrarUsuario(usuario){
+        var user = $ionicUser.get();
+        if(!user.user_id) {
+          user.user_id = $ionicUser.generateGUID();
+        };
+
+        // Establecemos alguna información para nuestro usuario
+        angular.extend(user, {
+          name: usuario.nombres+" "+usuario.apellidos,
+          id: usuario.id
+        });
+        
+        $ionicUser.identify(user).then(function(){
+          $scope.identified = true;
+          alert('Usuario identificado: ' + user.name + '\n ID ' + user.user_id);
+        });
+       
+    }
     
-    Ionic.io();
-var push = new Ionic.Push();
-var user = Ionic.User.current();
-
-// if the user doesn't have an id, you'll need to give it one.
-if (!user.id) {
-  user.id = Ionic.User.anonymousId();
-}
-
-user.set('name', $rootScope.user_name);
-user.set('bio', $rootScope.user_bio);
-user.save();
-
- var callback = function(data) {
-   console.log('Registered token:', data.token);
-   console.log(data.token);
-   push.addTokenToUser(user);
-   user.save();
-}
-push.register(callback);
-    
+    function resgistrarToken(){
+        $ionicPush.register({
+          canShowAlert: true, //Se pueden mostrar alertas en pantalla
+          canSetBadge: true, //Puede actualizar badgeds en la app
+          canPlaySound: true, //Puede reproducir un sonido
+          canRunActionsOnWake: true, //Puede ejecutar acciones fuera de la app
+          onNotification: function(notification) {
+            // Cuando recibimos una notificacion, la manipulamos aqui
+            alert(notification.message);
+            return true;
+          }
+        }); 
+    }
+                 
     function mostarAlert(titulo,contenido){
         var alertPopup = $ionicPopup.alert({
             title: titulo,

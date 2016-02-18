@@ -13,7 +13,7 @@ var app  = angular.module('starter', ['ionic','ionic.service.core','starter.cont
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
-            } 
+            }
         });
     })
     .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,$httpProvider,$ionicAppProvider) {        

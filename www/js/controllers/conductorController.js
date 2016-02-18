@@ -1,5 +1,9 @@
-app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService,$ionicLoading) {
-  $scope.mostrarAdvertencia = false;
+app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorService,EmpresaService,$ionicLoading, $cordovaPush, $cordovaDialogs, $cordovaMedia, $cordovaToast, ionPlatform) {
+  $scope.notifications = [];
+  
+  $scope.$on('$ionicView.enter',function(){
+    $scope.mostrarAdvertencia = false;
+  });
     
     $ionicLoading.show();
     
@@ -20,7 +24,9 @@ app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorS
   }
 
   $scope.registarConductor = function(){
+        
     $scope.conductor.rol = "CONDUCTOR";
+    $scope.conductor.reg_id = $scope.reg_id;
     if($scope.conductor.contrasena == $scope.conductor.confirmarContrasena ){
       ConductorService.registrar($scope.conductor).then(
         function(respuesta){
@@ -44,4 +50,5 @@ app.controller('ConductorCtrl', function($scope,$location,$ionicPopup,ConductorS
     alertPopup.then(function (res) {
     });
   }
+  
 })
