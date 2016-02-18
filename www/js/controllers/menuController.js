@@ -71,5 +71,12 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
         alert("Successfully registered token " + data.token);
         console.log('Ionic Push: Got token ', data.token, data.platform);
         $scope.token = data.token;
+        ConductorService.updateRegId($scope.conductor.id, data.token).then(succes, error);
+        function succes(p){
+            console.log(p.data)
+        }
+        function error(e){
+            console.log('algun error', e)
+        }
     });
 });

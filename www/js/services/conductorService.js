@@ -30,5 +30,16 @@ app.service("ConductorService", function($http,$window){
     var url = uri+'/api/usuarios/conductores';
     return $http.post(url,conductor);
   }
+  
+  this.updateRegId = function(conductor_id, reg_id){
+      var pet = {
+          method: 'PUT',
+          url:  uri + '/api/conductores/'+conductor_id+'/reg_id/'+reg_id,
+          headers: {
+              'Authorization': 'Bearer '+$window.localStorage['token']
+          }
+      };
+      return $http(pet);
+  }
 
 });
