@@ -1,5 +1,5 @@
-app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,ConductorService,$location,$timeout,$ionicLoading,$ionicUser, $ionicPush){    
-    
+app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,ConductorService,$location,$timeout,$ionicLoading,$ionicUser, $ionicPush){
+
     $ionicLoading.show();
     $rootScope.placa;
     $rootScope.gremio;
@@ -19,11 +19,11 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
             $ionicLoading.hide();
         }
     );
-    
+
     $scope.logout = function(){
         $location.path("/login");
     }
-    
+
     function registrarUsuario(usuario){
         var user = $ionicUser.get();
         if(!user.user_id) {
@@ -35,14 +35,14 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
           name: usuario.nombres+" "+usuario.apellidos,
           id: usuario.id
         });
-        
+
         $ionicUser.identify(user).then(function(){
           $scope.identified = true;
-          alert('Usuario identificado: ' + user.name + '\n ID ' + user.user_id);
+          console.log('Usuario identificado: ' + user.name + '\n ID ' + user.user_id);
         });
-       
+
     }
-    
+
     function resgistrarToken(){
         $ionicPush.register({
           canShowAlert: true, //Se pueden mostrar alertas en pantalla
@@ -51,12 +51,12 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
           canRunActionsOnWake: true, //Puede ejecutar acciones fuera de la app
           onNotification: function(notification) {
             // Cuando recibimos una notificacion, la manipulamos aqui
-            alert(notification.message);
+            //mostarAlert('Notificacion', notification.message);
             return true;
           }
-        }); 
+        });
     }
-                 
+
     function mostarAlert(titulo,contenido){
         var alertPopup = $ionicPopup.alert({
             title: titulo,
@@ -65,10 +65,10 @@ app.controller('MenuCtrl',function($scope,$ionicPopup,$rootScope,$window,Conduct
         alertPopup.then(function (res) {
             $scope.conductor = {};
         });
-    } 
-    
+    }
+
     $rootScope.$on('$cordovaPush:tokenReceived', function(event, data) {
-        alert("Successfully registered token " + data.token);
+        console.log("Successfully registered token " + data.token);
         console.log('Ionic Push: Got token ', data.token, data.platform);
         $scope.token = data.token;
         ConductorService.updateRegId($scope.conductor.id, data.token).then(succes, error);
