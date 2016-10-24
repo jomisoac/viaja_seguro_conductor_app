@@ -44,16 +44,16 @@
 }
 
 .img-perfil{
-    max-width: 60px;
-    max-height: 60px;
-    margin-left: 5%;
-    margin-top: 10%;
-    border:2px solid #FFFFFF;
+    width: 60px !important;
+    height: 60px !important;
+    margin-left: 5% !important;
+    margin-top: 10% !important;
+    border:2px solid #FFFFFF !important;
 }
 
 .img-rounded{
-    border-radius: 50%;
-    background: #fff;
+    border-radius: 50% !important;
+    background: #fff !important;
 }
 
 .nombre-conductor{

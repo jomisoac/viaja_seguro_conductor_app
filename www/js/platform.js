@@ -10,7 +10,7 @@
  * Android back button in PhoneGap/Cordova.
  */
 
-angular.module('starter', [])
+angular.module('app', [])
 .constant('IONIC_BACK_PRIORITY', {
   view: 100,
   sideMenu: 150,

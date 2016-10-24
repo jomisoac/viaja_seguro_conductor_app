@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
@@ -22,35 +22,52 @@
     <script src="lib/ionic-service-core/ionic-core.js"></script>
     <script src="lib/ionic-service-push/ionic-push.js"></script>
     <script src="lib/ionic-service-push/ionic-push.js"></script>
-    <script src="lib/PushNotification.js"></script> 
+    <script src="lib/PushNotification.js"></script>
     <script src="js/platform.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/services.js"></script> 
+    <script src="app/config/app_run.js"></script>
+    <script src="app/config/app_config.js"></script>
+    <script src="app/menu/menuController.js"></script>
+    <script src="js/services.js"></script>
 
-    <!--controladores-->
-    <script src="js/controllers/menuController.js"></script>
-    <script src="js/controllers/controllers.js"></script>
-    <script src="js/controllers/loginController.js"></script>
-    <script src="js/controllers/homeController.js"></script>
-    <script src="js/controllers/vehiculoController.js"></script>
-    <script src="js/controllers/conductorController.js"></script>
-    <script src="js/controllers/gremioController.js"></script>
-    <script src="js/controllers/pasajerosController.js"></script>
-    <script src="js/controllers/giroController.js"></script>
-    <script src="js/controllers/encomiendaController.js"></script>
-    <script src="js/controllers/timerController.js"></script>
+    <!--autenticacion-->
+    <script src="app/auth/login.module.js"></script>
+    <script src="app/auth/loginController.js"></script>
+    <script src="app/auth/loginService.js"></script>
+    <!--conductor-->
+    <script src="app/conducor/conductor.module.js"></script>
+    <script src="app/conducor/conductorController.js"></script>
+    <script src="app/conducor/conductorService.js"></script>
+    <!--configuracion-->
+    <script src="app/configuracion/configuraciones.module.js"></script>
+    <!--giros-->
+    <script src="app/giros/giros.module.js"></script>
+    <script src="app/giros/giroController.js"></script>
+    <script src="app/giros/girosService.js"></script>
+    <!--gremios-->
+    <script src="app/gremio/gremio.module.js"></script>
+    <script src="app/gremio/gremioController.js"></script>
+    <!--paquetes-->
+    <script src="app/paquetes/paquetes.module.js"></script>
+    <script src="app/paquetes/encomiendaController.js"></script>
+    <script src="app/paquetes/encomiendaService.js"></script>
+    <!--pasajeros-->
+    <script src="app/pasajeros/pasajeros.module.js"></script>
+    <script src="app/pasajeros/pasajerosController.js"></script>
+    <script src="app/pasajeros/pasajerosService.js"></script>
     <!--servicios-->
-    <script src="js/services/loginService.js"></script>
-    <script src="js/services/conductorService.js"></script>
-    <script src="js/services/empresaService.js"></script>
-    <script src="js/services/vehiculoService.js"></script>
-    <script src="js/services/pasajerosService.js"></script>
-    <script src="js/services/girosService.js"></script>
-    <script src="js/services/encomiendaService.js"></script>
-    <script src="js/services/geolocalizacionService.js"></script>
-  </head>
+    <script src="app/services/empresaService.js"></script>
+    <script src="app/services/geolocalizacionService.js"></script>
+    <script src="app/config/homeController.js"></script>
+    <script src="app/config/timerController.js"></script>
 
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
-  </body>
+    <!--vehiculos-->
+    <script src="app/vehiculo/vehiculo.module.js"></script>
+    <script src="app/vehiculo/vehiculoController.js"></script>
+    <script src="app/vehiculo/vehiculoService.js"></script>
+</head>
+
+<body ng-app="app">
+<ion-nav-view></ion-nav-view>
+</body>
 </html>
